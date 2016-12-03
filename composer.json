@@ -1,0 +1,28 @@
+{
+    "name": "squareboat/sql-doctor",
+    "description": "Quickly debugging the amount of database queries per request in Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "debug", "database", "queries"],
+    "authors": [
+        {
+            "name": "Amit Gupta",
+            "email": "akaamitgupta@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0",
+        "illuminate/config": "~5.0",
+        "illuminate/http": "~5.0",
+        "illuminate/events": "~5.0",
+        "illuminate/database": "~5.0",
+        "symfony/debug": "2.8.*|3.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SquareBoat\\SqlDoctor\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
