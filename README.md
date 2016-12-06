@@ -22,7 +22,7 @@ SquareBoat\SqlDoctor\SqlDoctorServiceProvider::class,
 
 ## Usage
 
-Now while your `app.debug` is set `true` then on any URL you can append `?sql-doctor=1` and get an output of complete list of all the queries that ran.
+Now while your `app.debug` is set `true` then on any URL you can append `?sql-doctor=1` and get an output of complete list of queries that ran.
 
 # License
 
