@@ -31,11 +31,13 @@ class SqlDoctorServiceProvider extends ServiceProvider
         if ( $config->get('app.debug') && $request->has('sql-doctor') ) {
             $db->connection()->enableQueryLog();
             
-            $event->listen('kernel.handled', function () use($db) {
+            $event->listen('kernel.handled', function ($request, $response) use($db) {
                 $queries = $db->getQueryLog();
 
-                foreach ($queries as $key => $query) {
-                    $queries[$key]['query'] = vsprintf(str_replace('?', '\'%s\'', $query['query']), $query['bindings']);
+                if ($request->query('sql-doctor') == 2) {
+                    foreach ($queries as $key => $query) {
+                        $queries[$key]['query'] = vsprintf(str_replace('?', '\'%s\'', $query['query']), $query['bindings']);
+                    }
                 }
 
                 dd($queries);
