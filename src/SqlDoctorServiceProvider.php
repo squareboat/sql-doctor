@@ -32,7 +32,13 @@ class SqlDoctorServiceProvider extends ServiceProvider
             $db->connection()->enableQueryLog();
             
             $event->listen('kernel.handled', function () use($db) {
-                dd($db->getQueryLog());
+                $queries = $db->getQueryLog();
+
+                foreach ($queries as $key => $query) {
+                    $queries[$key]['query'] = vsprintf(str_replace('?', '\'%s\'', $query['query']), $query['bindings']);
+                }
+
+                dd($queries);
             });
         }
     }
