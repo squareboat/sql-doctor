@@ -32,7 +32,7 @@ class SqlDoctor
     }
 
     /**
-     * Bind values to their parameters in the given statement.
+     * Bind values to their parameters in the given query.
      *
      * @param string $query
      * @param array  $bindings
