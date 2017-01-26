@@ -19,10 +19,10 @@ class SqlDoctor
     {
         $db->connection()->enableQueryLog();
         
-        $event->listen(RequestHandled::class, function ($request, $response) use($db) {
+        $event->listen(RequestHandled::class, function ($handled) use($db) {
             $queries = $db->getQueryLog();
 
-            if ($request->query('sql-doctor') == 2) {
+            if ($handled->request->query('sql-doctor') == 2) {
                 foreach ($queries as $key => $query) {
                     $queries[$key]['query'] = $this->bindValues($query['query'], $query['bindings']);
                 }
