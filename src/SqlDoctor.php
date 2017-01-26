@@ -4,6 +4,7 @@ namespace SquareBoat\SqlDoctor;
 
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Events\Dispatcher as Event;
+use Illuminate\Foundation\Http\Events\RequestHandled;
 
 class SqlDoctor
 {
@@ -18,7 +19,7 @@ class SqlDoctor
     {
         $db->connection()->enableQueryLog();
         
-        $event->listen('kernel.handled', function ($request, $response) use($db) {
+        $event->listen(RequestHandled::class, function ($request, $response) use($db) {
             $queries = $db->getQueryLog();
 
             if ($request->query('sql-doctor') == 2) {
