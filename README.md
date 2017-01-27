@@ -8,7 +8,7 @@ Quickly debugging the amount of database queries per request in Laravel.
 
 ### Install via composer
 
-#### For Laravel <= 5.3, please use the [1.1 version](https://github.com/squareboat/sql-doctor/tree/v1.1.0)!
+#### For Laravel <= 5.3, please use the [1.1 version](https://github.com/squareboat/sql-doctor/tree/v1.1)!
 
 ```
 $ composer require squareboat/sql-doctor
