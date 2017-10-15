@@ -16,7 +16,9 @@ $ composer require squareboat/sql-doctor
 
 ### Configure Laravel
 
-Once installation operation is complete, simply add the service provider to your project's `config/app.php` file:
+> If you are using __laravel 5.5__ or higher you should skip this step.
+
+If you are using laravel 5.4, simply add the service provider to your project's `config/app.php` file:
 
 #### Service Provider
 ```
